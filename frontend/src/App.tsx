@@ -4,16 +4,14 @@ import Chat from "./components/Chat";
 import Wedding from "./contract/contract.json";
 import useWeddingContract from "./useWeddingContract";
 import Fireworks from './components/Fireworks';
-import Attestation from './components/Attestation';
 import Ceremony from './components/Ceremony';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Grid from '@mui/material/Grid';
-import Marriage from "./components/Marriage";
 
 
 function App() {
-  const contractAddress = "0xf2ed405bf4164ae48ad9fccd90c4ff1622e44565";
+  const contractAddress = "0x6d273dae2db4f7126671e797ef765f165653a6e8";
   const network = "sepolia";
   const appName = "Smart Wedding";
   const [account, setAccount] = useState<string>();
@@ -36,9 +34,7 @@ function App() {
         </Grid>
         <Grid item xs={7} md={7} className="ceremony">
           <div>.</div>
-          <Attestation />
-          <Marriage />
-          <Ceremony weddingContract={weddingContract} />
+          <Ceremony account={account} weddingContract={weddingContract} />
           {/* <Fireworks/> */}
         </Grid>
       </Grid>

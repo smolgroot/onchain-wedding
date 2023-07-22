@@ -5,43 +5,61 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Avatar } from '@mui/material';
 import { Grid } from '@mui/material';
 import { Button } from '@mui/material';
-
+import Attestation from './Attestation';
 
 
 interface Props {
   weddingContract: ethers.Contract | undefined;
+  account?: string;
 }
 
 
-const Ceremony = ({ weddingContract }: Props) => {
-  // const [wd, getFianceDetails] = useState<WeddingDetails[]>();
-  const [f1a, setFiance1Addr] = useState<string>();
+const Ceremony = ({ weddingContract, account }: Props) => {
+  const [wallet, setWallet] = useState<ethers.providers.JsonRpcSigner | null>(null);
+  const [fiance1Status, setFiance1Status] = useState(false);
+  const [fiance2Status, setFiance2Status] = useState(false);
 
-  const getInformation = async () => {
-    if (!weddingContract) return;
+  useEffect(() => {
+    if (window.ethereum) {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      setWallet(signer);
 
-    // Fetch fiance details:
-    const getFianceDetails = async () => {
-      const [fiance1WalletAddr, fiance1Name] = await weddingContract.getFiance1();
-      const [fiance2WalletAddr, fiance2Name] = await weddingContract.getFiance2();
-      setFiance1Addr(Address1);
-
-      return {
-        Address1: fiance1WalletAddr,
-        Name1: fiance1Name,
-        Address2: fiance2WalletAddr,
-        Name2: fiance2Name
-      };
+      if (weddingContract) {
+        (async () => {
+          try {
+            const [fiance1WalletAddr,] = await weddingContract.getFiance1();
+            const [fiance2WalletAddr,] = await weddingContract.getFiance2();
+            weddingContract.on("NewSignature", (from: string, timestamp: ethers.BigNumber, event: ethers.Event) => {
+              if (from.toLowerCase() === fiance1WalletAddr.toLowerCase()) {
+                setFiance1Status(true);
+              } else if (from.toLowerCase() === fiance2WalletAddr.toLowerCase()) {
+                setFiance2Status(true);
+              }
+            });
+          } catch (err) {
+            console.error(err);
+          }
+        })();
+      }
+    } else {
+      console.log('Please install MetaMask!');
     }
 
-    const { Address1, Name1, Address2, Name2 } = await getFianceDetails();
-    console.log(Address1, Name1, Address2, Name2);
-    setFiance1Addr(Address1);
-  };
+    return () => {
+      if (weddingContract) {
+        weddingContract.removeAllListeners("NewSignature");
+      }
+    };
+  }, [weddingContract]);
 
-  // useEffect(() => {
-  //   if (!weddingContract ) return;
-  // }, [weddingContract]);
+  const sayYes = async () => {
+    if (wallet && weddingContract) {
+      const contractWithSigner = weddingContract.connect(wallet);
+      const tx = await contractWithSigner.sayYes();
+      await tx.wait();
+    }
+  };
 
   return (
     <div>
@@ -62,7 +80,7 @@ const Ceremony = ({ weddingContract }: Props) => {
               sx={{ width: 110, height: 110 }}
             />
             <hr></hr>
-            <Button className='weddingButton' variant="contained"  color="success" endIcon={<CheckCircleIcon />}>
+            <Button className='weddingButton' disabled={fiance1Status} onClick={sayYes} variant="contained"  color="success" endIcon={<CheckCircleIcon />}>
               Say Yes
             </Button>
           </div>
@@ -81,16 +99,15 @@ const Ceremony = ({ weddingContract }: Props) => {
             sx={{ width: 110, height: 110 }}
           />
           <hr></hr>
-          <Button className='weddingButton' variant="contained"  color="success" endIcon={<CheckCircleIcon />}>
+          <Button className='weddingButton' disabled={fiance2Status} onClick={sayYes} variant="contained"  color="success" endIcon={<CheckCircleIcon />}>
             Say Yes
           </Button>
         </div>
 
-
+        <Attestation account={account} weddingContract={weddingContract} />
         </Grid>
       </Grid>
       
-      {f1a}
       {/* Today, {name1} and {name2} are getting married! */}
     </div>
   );

@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 import { ethers } from 'ethers';
-import Wedding from "../contract/contract.json";
+import Fireworks from './Fireworks';
 
-export default function Attestation() {
+interface Props {
+    weddingContract: ethers.Contract | undefined;
+    account?: string;
+  }
+
+
+export default function Attestation({ weddingContract, account }: Props) {
     const [newAttestationUID, setNewAttestationUID] = useState('');
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
+
     useEffect(() => {
+        if (!weddingContract) return; // Early return if weddingContract is not defined
+        
         const EASContractAddress = "0xC2679fBD37d54388Ce493F1DB75320D236e1815e"; // Sepolia v0.26
-        const weddingContractAddress = '0x3a405b3f52de981b85c2e2db5e5bacd503ea6538'; // Your wedding contract address
-        const abi = Wedding.abi;
-        const weddingContract = new ethers.Contract(weddingContractAddress, abi, provider);
         const eas = new EAS(EASContractAddress);
         
         // then pass to eas.connect()
@@ -23,6 +29,7 @@ export default function Attestation() {
         const onNewSignature = async () => {
             console.log('NewSignature event fired!');
         };
+        
         weddingContract.on('NewSignature', onNewSignature);
 
         const onMarriageDone = async () => {
@@ -64,6 +71,7 @@ export default function Attestation() {
     return (
         <div>
             New attestation UID: {newAttestationUID}
+            <Fireworks/>
         </div>
     );
 }
