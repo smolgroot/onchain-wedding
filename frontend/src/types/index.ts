@@ -3,3 +3,11 @@ export interface Message {
   date: string;
   content: string;
 }
+
+
+export interface Signer {
+  address: string;
+  firstname: string;
+  description: string;
+  ipfsPhotoCid: string;
+}

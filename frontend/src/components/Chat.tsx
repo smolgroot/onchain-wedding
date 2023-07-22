@@ -73,6 +73,8 @@ const Chat = ({ account, chatContract }: Props) => {
 
   return (
     <div className="chat">
+      <h2>Wish them the best</h2>
+      <hr></hr>
       <div className="chat__messages">
         {!chatContract && (
           <p className="state-message">
@@ -95,7 +97,7 @@ const Chat = ({ account, chatContract }: Props) => {
       </div>
       <div className="chat__actions-wrapper">
         {!account && (
-          <p className="state-message">Connect your wallet to chat!</p>
+          <p className="state-message">Connect your wallet to send a wish!</p>
         )}
         <div className="chat__input">
           <textarea

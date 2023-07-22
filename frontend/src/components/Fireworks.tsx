@@ -19,7 +19,7 @@ const FireworksComponent = () => {
 
   // assign the ref object to the div element
   // React will set containerRef.current to the corresponding DOM node
-  return <div ref={containerRef} style={{ width: '100vw', height: '100vh' }} />;
+  return <div id="fireworks" ref={containerRef} />;
 }
 
 export default FireworksComponent;
