@@ -5,18 +5,18 @@ import { ethers } from "ethers";
 
 interface Props {
   account?: string;
-  chatContract: ethers.Contract | undefined;
+  weddingContract: ethers.Contract | undefined;
 }
 
-const Chat = ({ account, chatContract }: Props) => {
+const Chat = ({ account, weddingContract }: Props) => {
   const [textareaContent, setTextareaContent] = useState("");
   const [txnStatus, setTxnStatus] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>();
 
   const getMessages = async () => {
-    if (!chatContract || account) return;
+    if (!weddingContract || account) return;
 
-    const messages = await chatContract.getMessages();
+    const messages = await weddingContract.getMessages();
 
     setMessages(() => {
       return messages.map((w: any) => ({
@@ -28,9 +28,9 @@ const Chat = ({ account, chatContract }: Props) => {
   };
 
   const setupMessageListener = (): ethers.Contract | void => {
-    if (!chatContract) return;
+    if (!weddingContract) return;
 
-    const msgListener = chatContract.on(
+    const msgListener = weddingContract.on(
       "NewMessage",
       (address, timestamp, content, _style) => {
         setMessages((prev) => {
@@ -48,10 +48,10 @@ const Chat = ({ account, chatContract }: Props) => {
   };
 
   const sendMessage = async () => {
-    if (!chatContract) return;
+    if (!weddingContract) return;
     try {
       setTxnStatus("WAIT");
-      const messageTxn = await chatContract.sendMessage(textareaContent);
+      const messageTxn = await weddingContract.sendMessage(textareaContent);
       setTxnStatus("SENDING");
       await messageTxn.wait();
     } catch (e) {
@@ -63,20 +63,20 @@ const Chat = ({ account, chatContract }: Props) => {
   };
 
   useEffect(() => {
-    if (!chatContract || messages) return;
+    if (!weddingContract || messages) return;
     getMessages();
     setupMessageListener();
-  }, [chatContract]);
+  }, [weddingContract]);
 
 
-  console.log("messages", messages);
+  // console.log("messages", messages);
 
   return (
     <div className="chat">
       <h2>Wish them the best</h2>
       <hr></hr>
       <div className="chat__messages">
-        {!chatContract && (
+        {!weddingContract && (
           <p className="state-message">
             Connect to the chat in order to see the messages!
           </p>

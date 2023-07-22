@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Chat from "./components/Chat";
 import Wedding from "./contract/contract.json";
-import useChatContract from "./useChatContract";
+import useWeddingContract from "./useWeddingContract";
 import Fireworks from './components/Fireworks';
 import Attestation from './components/Attestation';
 import Ceremony from './components/Ceremony';
@@ -13,11 +13,11 @@ import Marriage from "./components/Marriage";
 
 
 function App() {
-  const contractAddress = "0x8dd43110d79d51d29155a94e2f73754f86f13981";
+  const contractAddress = "0xf2ed405bf4164ae48ad9fccd90c4ff1622e44565";
   const network = "sepolia";
   const appName = "Smart Wedding";
   const [account, setAccount] = useState<string>();
-  const chatContract = useChatContract(
+  const weddingContract = useWeddingContract(
     contractAddress,
     Wedding.abi,
     account
@@ -32,17 +32,17 @@ function App() {
       <Grid container>
         <Grid item xs={5} md={5} >
           <div>XMTP live chat here</div>
-          <Chat account={account} chatContract={chatContract} />
+          <Chat account={account} weddingContract={weddingContract} />
         </Grid>
         <Grid item xs={7} md={7} className="ceremony">
           <div>.</div>
           <Attestation />
           <Marriage />
-          <Ceremony account={account} chatContract={chatContract} />
+          <Ceremony weddingContract={weddingContract} />
           {/* <Fireworks/> */}
         </Grid>
       </Grid>
-      <Footer setAccount={setAccount} account={account} contractAddress={contractAddress} appName={appName}/>
+      <Footer contractAddress={contractAddress}/>
     </div>
   );
 }

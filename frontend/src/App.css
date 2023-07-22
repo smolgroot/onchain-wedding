@@ -39,6 +39,7 @@ body {
   line-height: 43px;
   position: relative;
   border-radius: 2em;
+  margin-bottom: 1em;
 }
 
 .header .title{
@@ -57,6 +58,30 @@ body {
 
 .header .wallet{
   text-align: right;
+}
+
+#greetings {
+  text-align: center;
+  color: #000;
+  display: inline-block;
+}
+
+.weddingAvatar{
+  margin: auto;
+}
+
+.weddingCard{
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #000;
+  text-align: center;
+  border-radius: 2em;
+  margin: 0 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 1em;
+  /* height: 500px; */
+
 }
 
 .chat {
@@ -168,8 +193,8 @@ textarea:focus{
 }
 
 
-button {
-  background-color: #43ffd61a;
+button .weddingButton{
+  background-color: #43ffd61a!important;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
   monospace;
   font-weight: bold;
@@ -212,4 +237,5 @@ a {
   position: relative;
   top: 0;
   left: 0;
+  z-index: 99;
 }
