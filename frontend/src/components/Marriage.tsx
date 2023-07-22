@@ -7,7 +7,7 @@ export default function Marriage() {
     const [wallet, setWallet] = useState<ethers.providers.JsonRpcSigner | null>(null);
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-    const weddingContractAddress = '0xf2ed405bf4164ae48ad9fccd90c4ff1622e44565'; // Your wedding contract address
+    const weddingContractAddress = '0x3a405b3f52de981b85c2e2db5e5bacd503ea6538'; // Your wedding contract address
     const abi = Wedding.abi;
     const contract = new ethers.Contract(weddingContractAddress, abi, provider);
 
