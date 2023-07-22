@@ -1,0 +1,6 @@
+{
+    "chainId": 1337,
+    "RPCAddress": "http://localhost:8545",
+    "contractAddress": "",
+    "keystore": "{\"address\":\"e42749aa40040929cd8db5ac5200df12f9b52540\",\"crypto\":{\"cipher\":\"aes-128-ctr\",\"ciphertext\":\"1ce311bf2000411f19983e7701a34ea40c824c37448bc5846d99d1a600f5ac1f\",\"cipherparams\":{\"iv\":\"26abf1759bb627d6862a1cd50b6b9bac\"},\"kdf\":\"scrypt\",\"kdfparams\":{\"dklen\":32,\"n\":262144,\"p\":1,\"r\":8,\"salt\":\"8f849bf619c45c013b2bbff18a3303d8daf2a1c5e2b5849b6a44b955018f748a\"},\"mac\":\"879d48587efcde3e8306e5dd7052af8dc2a175772cf9a5afd0007cc3962cd6e0\"},\"id\":\"12383611-242e-4f7e-b391-8f4fb3d7fc51\",\"version\":3}"
+}
