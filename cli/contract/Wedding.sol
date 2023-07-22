@@ -28,7 +28,7 @@ contract Wedding {
     );
 
     Fiance fiance2 = Fiance(
-        0x23bC9eB2343125b91a7d5c59038e40E0AE451551, 
+        0x1524119db08Ab2864fd8714D6Ad20d0c49AE06Bd, 
         "Maria", 
         "This is the most exciting day in my life!", 
         "QmX4aCHjcuqpDysJk6WDLj69sYTtMGhyTypLu2uwLGKNYg",
@@ -44,11 +44,11 @@ contract Wedding {
     function sayYes() public {
 
         // Check if sender is one of the 2 fiances
-        if (msg.sender == fiance1.walletAddr) {
+        if (msg.sender == fiance1.walletAddr && !fiance1.alreadySaidYes) {
             fiance1.alreadySaidYes = true;
             signers.push(fiance1);
             emit NewSignature(fiance1.walletAddr, block.timestamp);
-        } else if (msg.sender == fiance2.walletAddr)  {
+        } else if (msg.sender == fiance2.walletAddr && !fiance2.alreadySaidYes)  {
             fiance2.alreadySaidYes = true;
             signers.push(fiance2);
             emit NewSignature(fiance2.walletAddr, block.timestamp);
@@ -56,6 +56,7 @@ contract Wedding {
             // if not one of the 2 fiances, emit an NotAllowed event
             emit NotAllowed(msg.sender, block.timestamp);
         }
+
 
         // Check if both peers accept the wedding contract
         // If both said "Yes", then emit an event
@@ -80,6 +81,14 @@ contract Wedding {
 
     function getFiance2() public view returns(address, string memory) {
         return (fiance2.walletAddr, fiance2.firstname);
+    }
+
+    function getFiance1Status() public view returns(bool) {
+        return fiance1.alreadySaidYes;
+    }
+
+    function getFiance2Status() public view returns(bool) {
+        return fiance2.alreadySaidYes;
     }
 
     function updateFianceDescription(Fiance memory fiance) public {
