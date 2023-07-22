@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@ethereum-attestation-service/eas-sdk": "^0.29.1",
     "fireworks-js": "^2.10.7"
   }
 }

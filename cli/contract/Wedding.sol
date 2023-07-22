@@ -5,6 +5,7 @@ pragma solidity ^0.8.0;
 
 contract Wedding {
 
+    address public lastSigner;
 
     // WEDDING LOGIC
     // ------------------------------------------------------
@@ -59,6 +60,7 @@ contract Wedding {
         // Check if both peers accept the wedding contract
         // If both said "Yes", then emit an event
         if (getSignersCount() == 2) {
+            lastSigner = signers[1].walletAddr;
             emit MarriageDone(block.timestamp);
         }   
 
@@ -66,6 +68,19 @@ contract Wedding {
 
     function getSignersCount() public view returns(uint count) {
         return signers.length;
+    }
+
+    function getLastSigner() public view returns(address) {
+        return lastSigner;
+    }
+
+
+    function getFiance1() public view returns(address, string memory) {
+        return (fiance1.walletAddr, fiance1.firstname);
+    }
+
+    function getFiance2() public view returns(address, string memory) {
+        return (fiance2.walletAddr, fiance2.firstname);
     }
 
     function updateFianceDescription(Fiance memory fiance) public {

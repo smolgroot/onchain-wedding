@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import Wedding from "./contract/contract.json";
 import useChatContract from "./useChatContract";
 import Fireworks from './components/Fireworks';
+import Attestation from './components/Attestation';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div className="App">
+      <Attestation/>
       <Fireworks/>
       <Sidebar setAccount={setAccount} account={account} contractAddress={contractAddress}/>
       <Chat account={account} chatContract={chatContract} />
