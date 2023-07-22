@@ -20,10 +20,10 @@ contract Wedding {
 
     // Hardcoded fiances addresses here
     Fiance fiance1 = Fiance(
-        0xE42749aA40040929cd8db5ac5200df12f9B52540, 
+        0x895c6b812E276FfBba21fE560327b4C5Aa1c17f3, 
         "Rajeev", 
         "Hello there, i'm about the get married", 
-        "QmSQTz4CxHmrNapTjYZcYdT46qJRjJN29XFj2PtrvFp6Lv",
+        "QmSQTz4CxHmrNapTjYZcYdT46qJRjJN29XFj2PtrvFp6Lv",   
         false
     );
 
@@ -73,7 +73,6 @@ contract Wedding {
     function getLastSigner() public view returns(address) {
         return lastSigner;
     }
-
 
     function getFiance1() public view returns(address, string memory) {
         return (fiance1.walletAddr, fiance1.firstname);
