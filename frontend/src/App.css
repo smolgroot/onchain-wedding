@@ -193,8 +193,8 @@ textarea:focus{
 }
 
 
-button .weddingButton{
-  background-color: #43ffd61a!important;
+button{
+  background-color: #43ffd61a;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
   monospace;
   font-weight: bold;
