@@ -4,9 +4,11 @@ import Chat from "./components/Chat";
 import Sidebar from "./components/Sidebar";
 import Wedding from "./contract/contract.json";
 import useChatContract from "./useChatContract";
+import Fireworks from './components/Fireworks';
+
 
 function App() {
-  const contractAddress = "0x91cae95fc8c7e5e332982af2eb0bc32327a8bc70";
+  const contractAddress = "0xe68C1C1B6316507410FA5fC4E0Ab0400eECE30a17a8bc70";
   const [account, setAccount] = useState<string>();
   const chatContract = useChatContract(
     contractAddress,
@@ -16,6 +18,7 @@ function App() {
 
   return (
     <div className="App">
+      <Fireworks/>
       <Sidebar setAccount={setAccount} account={account} contractAddress={contractAddress}/>
       <Chat account={account} chatContract={chatContract} />
     </div>

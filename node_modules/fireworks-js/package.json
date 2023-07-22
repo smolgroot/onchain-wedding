@@ -1,0 +1,42 @@
+{
+  "name": "fireworks-js",
+  "version": "2.10.7",
+  "type": "module",
+  "description": "A simple fireworks library!",
+  "homepage": "https://fireworks.js.org",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs.js",
+  "jsdelivr": "./dist/index.umd.js",
+  "unpkg": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "exports": {
+    "require": "./dist/index.cjs.js",
+    "import": "./dist/index.es.js",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crashmax-dev/fireworks-js.git"
+  },
+  "keywords": [
+    "canvas",
+    "fireworks",
+    "animation"
+  ],
+  "author": {
+    "name": "Vitalij Ryndin",
+    "email": "sys@crashmax.ru",
+    "url": "https://crashmax.ru"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crashmax-dev/fireworks-js/issues"
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  }
+}
