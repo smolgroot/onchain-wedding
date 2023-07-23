@@ -71,8 +71,8 @@ const Ceremony = ({ weddingContract, account }: Props) => {
         
 
           <div className="weddingCard">
-            <h2>Partner 1</h2>
-            <p>Some description about me</p>
+            <h2>Maria</h2>
+            <p>The more important day in my life! I love you!</p>
             <Avatar
               className='weddingAvatar'
               alt="fiance"
@@ -90,8 +90,8 @@ const Ceremony = ({ weddingContract, account }: Props) => {
         <Grid item xs={6} md={6}>
 
         <div className="weddingCard">
-          <h2>Partner 1</h2>
-          <p>Some description about me</p>
+          <h2>Rajeev</h2>
+          <p>Would you marry me?</p>
           <Avatar
             className='weddingAvatar'
             alt="fiance"
