@@ -11,7 +11,7 @@ import Grid from '@mui/material/Grid';
 
 
 function App() {
-  const contractAddress = "0x6d273dae2db4f7126671e797ef765f165653a6e8";
+  const contractAddress = "0x4fcd2d1d4175262f110b0c7a055ea25c2aed656c";
   const network = "sepolia";
   const appName = "Smart Wedding";
   const [account, setAccount] = useState<string>();
@@ -29,11 +29,9 @@ function App() {
       </Grid>
       <Grid container>
         <Grid item xs={5} md={5} >
-          <div>XMTP live chat here</div>
           <Chat account={account} weddingContract={weddingContract} />
         </Grid>
         <Grid item xs={7} md={7} className="ceremony">
-          <div>.</div>
           <Ceremony account={account} weddingContract={weddingContract} />
           {/* <Fireworks/> */}
         </Grid>

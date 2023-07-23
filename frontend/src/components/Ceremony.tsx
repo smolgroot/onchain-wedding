@@ -104,8 +104,13 @@ const Ceremony = ({ weddingContract, account }: Props) => {
           </Button>
         </div>
 
-        <Attestation account={account} weddingContract={weddingContract} />
         </Grid>
+      </Grid>
+      <Grid container id="greetings">
+          <br></br>
+          <br></br>
+          <br></br>
+         <Attestation account={account} weddingContract={weddingContract} />
       </Grid>
       
       {/* Today, {name1} and {name2} are getting married! */}

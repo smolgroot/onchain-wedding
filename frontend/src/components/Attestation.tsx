@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 import { ethers } from 'ethers';
 import Fireworks from './Fireworks';
+import { Button } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 interface Props {
     weddingContract: ethers.Contract | undefined;
@@ -70,7 +72,12 @@ export default function Attestation({ weddingContract, account }: Props) {
 
     return (
         <div>
-            New attestation UID: {newAttestationUID}
+            <p>
+            New AES attestation UID: {newAttestationUID}
+            </p>
+            <Button href={"https://sepolia.easscan.org/attestation/view/" + newAttestationUID} target="blank" className='weddingButton' variant="contained" color="success" endIcon={<CheckCircleIcon />}>
+              See ProofOfMarriage on EAS Explorer
+            </Button>
             <Fireworks/>
         </div>
     );

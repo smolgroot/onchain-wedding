@@ -10,7 +10,7 @@ const Headers = ({ contractAddress }: Props) => {
   return (
     <footer className="footer">
       <p>
-        Contract Address: <a target="blank" href="http://etherscan.io/address/{contractAddress}"> {contractAddress}</a>
+        Contract Address: <a target="blank" href={"http://sepolia.etherscan.io/address/" + contractAddress}> {contractAddress}</a>
       </p>
     </footer>
   );
