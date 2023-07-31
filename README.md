@@ -1,6 +1,10 @@
+
+![](logo.svg)
 # Proof of Marriage
 
 This project is the result of the ETHGlobal Paris 2023 Hackathon.
+
+> Find the project page in the [ETHGlobal showcase (here)](https://ethglobal.com/showcase/proof-of-marriage-4hxah).
 
 
 ## Project Description
