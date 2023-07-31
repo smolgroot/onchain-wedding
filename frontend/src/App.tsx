@@ -11,7 +11,7 @@ import Grid from '@mui/material/Grid';
 
 
 function App() {
-  const contractAddress = "0x4fcd2d1d4175262f110b0c7a055ea25c2aed656c";
+  const contractAddress = "0xd4d9cc8f495cd3cea6de2f6adfec7abc8e45d9cc";
   const network = "sepolia";
   const appName = "Smart Wedding";
   const [account, setAccount] = useState<string>();

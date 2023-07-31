@@ -22,7 +22,7 @@ import (
 // deployCmd represents the deploy command
 var deployCmd = &cobra.Command{
 	Use:   "deploy",
-	Short: "Deploy a new instance of the BlockchainChat smart contract on chain. Returns contract address.",
+	Short: "Deploy a new instance of the Wedding smart contract on chain. Returns contract address.",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("deploy called")
 		deploy()

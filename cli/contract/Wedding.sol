@@ -20,7 +20,7 @@ contract Wedding {
 
     // Hardcoded fiances addresses here
     Fiance fiance1 = Fiance(
-        0x895c6b812E276FfBba21fE560327b4C5Aa1c17f3, 
+        0xE42749aA40040929cd8db5ac5200df12f9B52540, 
         "Rajeev", 
         "Hello there, i'm about the get married", 
         "QmSQTz4CxHmrNapTjYZcYdT46qJRjJN29XFj2PtrvFp6Lv",   
@@ -28,7 +28,7 @@ contract Wedding {
     );
 
     Fiance fiance2 = Fiance(
-        0x1524119db08Ab2864fd8714D6Ad20d0c49AE06Bd, 
+        0x23bC9eB2343125b91a7d5c59038e40E0AE451551, 
         "Maria", 
         "This is the most exciting day in my life!", 
         "QmX4aCHjcuqpDysJk6WDLj69sYTtMGhyTypLu2uwLGKNYg",

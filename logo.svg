@@ -76,9 +76,9 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:snap-page="true"
-     inkscape:zoom="0.36009615"
-     inkscape:cx="118.02403"
-     inkscape:cy="-126.35514"
+     inkscape:zoom="1.2833525"
+     inkscape:cx="415.31848"
+     inkscape:cy="-456.22696"
      inkscape:window-width="1920"
      inkscape:window-height="1016"
      inkscape:window-x="0"
@@ -115,7 +115,10 @@
          width="548.23724"
          height="308.38345"
          x="110.78402"
-         y="-593.26361" /><path
+         y="-593.26361"
+         inkscape:export-filename="/home/canuto/BANNER_ETH.png"
+         inkscape:export-xdpi="300"
+         inkscape:export-ydpi="300" /><path
          d="m 251.32781,-474.73891 -3.29632,4.31055 c 16.98866,7.09975 27.89185,23.32774 27.89185,41.83779 0,25.10267 -20.53856,45.64123 -45.64123,45.64123 -25.10268,0 -45.64121,-20.53856 -45.64121,-45.64123 0,-18.51005 10.90316,-34.73804 27.63829,-41.83779 l -3.04276,-4.31055 c -18.00291,8.36755 -29.66678,26.11692 -29.66678,46.14834 0,27.89185 22.8206,50.71248 50.71246,50.71248 27.89188,0 50.71248,-22.82063 50.71248,-50.71248 0,-20.03142 -11.66387,-37.78079 -29.66678,-46.14834 z"
          id="path997-8"
          sodipodi:nodetypes="ccsssccsssc"
@@ -146,7 +149,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.3117px;font-family:'Bebas Neue';-inkscape-font-specification:'Bebas Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:2.64449"
            x="310.5925"
            y="-397.98245"
-           id="tspan16161">using AES attestion</tspan></text></g></g><g
+           id="tspan16161">using EAS attestion</tspan></text></g></g><g
      id="g1001-0"
      transform="matrix(1.1673778,0,0,1.1673778,55.36712,32.742143)"><g
        id="g999-8" /></g></svg>
