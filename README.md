@@ -1,5 +1,3 @@
-
-![](logo.svg)
 # Proof of Marriage
 
 This project is the result of the ETHGlobal Paris 2023 Hackathon.
@@ -22,7 +20,7 @@ This project is made with 2 parts:
 1 - A Go CLI tool, you can use to customize your custom wedding smart contract. - It uses Geth an Abigen (a Go-Ethereum tool) to automatically realize Go bindings with the Solidity smart contract. 
 [CLI README](./cli/README.md)
 
-2 - A React Dapp, using ethers to interact with our contract. We are using the Ethereum Attestation Service AES (EAS) which is the perfect framework for our use case. AES is a public good for creating, verifying, and revoking on/off-chain attestations, so we choose it to create Wedding attestation.
+2 - A React Dapp, using ethers to interact with our contract. We are using the Ethereum Attestation Service EAS (EAS) which is the perfect framework for our use case. EAS is a public good for creating, verifying, and revoking on/off-chain attestations, so we choose it to create Wedding attestation.
 [DAPP README](./frontend/README.md)
 
 
